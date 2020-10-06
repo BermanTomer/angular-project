@@ -1,0 +1,36 @@
+<!-- <p>post-create works!</p> -->
+<!-- <textarea row=6 [value]="newPost" #Postvalue></textarea> -->
+  <mat-card>
+    <form (submit)="onAddPostForm(postForm)" #postForm="ngForm" >
+      <mat-form-field>
+        <input
+        matInput
+        type="text"
+        name="title"
+        ngModel
+        required
+        #title = "ngModel"
+        placeholder="Post title">
+        <mat-error *ngIf="title.invalid">Title is requierd</mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <!-- <mat-label>Favorite food</mat-label> -->
+        <textarea
+        matInput
+        row=4
+        name="content"
+        ngModel
+        required
+        #content = "ngModel"
+        placeholder="Post content">
+        <mat-error *ngIf="content.invalid">Content is requierd</mat-error>
+        </textarea>
+      </mat-form-field>
+      <button
+        type="submit"
+        mat-raised-button
+        color="accent"
+      >Save Post</button>
+    </form>
+  </mat-card>
+<!-- <p>{{newPost}}</p> -->
